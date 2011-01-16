@@ -1,0 +1,12 @@
+h1. PyroDatabase Utilities Module
+
+Simple module that allows you to:
+
+*View MySQL status and info
+*View Structure / Repair / Optimize Tables
+*Run Queries
+*See Process List
+
+h2. Status
+
+This is currently unfinished but all areas are functional aside from the query window.
