@@ -1,1 +1,6 @@
 #query_window {width: 95%; height: 120px;}
+
+#shortcuts a.stats {background: url('../img/database_connect.png') 10px 50% no-repeat; padding-left: 35px;}
+#shortcuts a.tables {background: url('../img/database_table.png') 10px 50% no-repeat; padding-left: 35px;}
+#shortcuts a.processes {background: url('../img/database_refresh.png') 10px 50% no-repeat; padding-left: 35px;}
+#shortcuts a.query {background: url('../img/database_lightning.png') 10px 50% no-repeat; padding-left: 35px;}
