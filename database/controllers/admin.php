@@ -5,9 +5,9 @@
  *
  * Controller for the redirects module
  * 
- * @author 		Adam Fairholm
- * @package 	PyroCMS
- * @subpackage 	Variables Module
+ * @author 		Addict Add-ons Dev Team
+ * @link		http://addictaddons.com
+ * @package 	PyroDatabase
  * @category	Modules
  */
 class Admin extends Admin_Controller
@@ -28,6 +28,11 @@ class Admin extends Admin_Controller
 
 	// --------------------------------------------------------------------------	
 	
+	/**
+	 * Show general table stats
+	 *
+	 * @access	public
+	 */
 	public function index()
 	{
 		$raw_stats = explode('  ', mysql_stat());
@@ -47,6 +52,11 @@ class Admin extends Admin_Controller
 
 	// --------------------------------------------------------------------------	
 
+	/**
+	 * Show tables
+	 *
+	 * @access	public
+	 */
 	function tables()
 	{
 		if( $this->input->post('repair') ):
@@ -70,6 +80,11 @@ class Admin extends Admin_Controller
 
 	// --------------------------------------------------------------------------	
 	
+	/**
+	 * Perform an operation (repair or optimize)
+	 *
+	 * @access	private
+	 */
 	private function _perform_operation( $type )
 	{
 		// -------------------------------------
@@ -121,6 +136,11 @@ class Admin extends Admin_Controller
 
 	// --------------------------------------------------------------------------	
 
+	/**
+	 * View a table's stucture
+	 *
+	 * @access	public
+	 */
 	public function table()
 	{
 		$this->load->helper('number');
@@ -146,6 +166,11 @@ class Admin extends Admin_Controller
 
 	// --------------------------------------------------------------------------	
 
+	/**
+	 * Show processlist
+	 *
+	 * @access	public
+	 */
 	function processes()
 	{
 		$this->load->helper( 'number' );
@@ -160,12 +185,45 @@ class Admin extends Admin_Controller
 
 	// --------------------------------------------------------------------------	
 
+	/**
+	 * Run a Query and display the results
+	 *
+	 * @access	public
+	 */
 	public function query()
 	{
-		$this->template->append_metadata(js('codemirror/codemirror.js'))->build('admin/query', $this->data);
+		$this->data->query_string = '';
+		
+		$this->data->mysql_result_error = '';
+
+		$this->db->db_debug = FALSE;
+		
+		$this->data->query_run = FALSE;
 	
+		if( $this->input->post('query') && $this->input->post('query') != '' ):
+		
+			// Perform Query
+			
+			$db_obj = $this->db->query( $this->input->post('query_window') );
+				
+			$this->data->query_run = TRUE;
+			
+			if( $db_obj ):
+			
+				$this->data->query_string = $this->input->post('query_window');
+			
+				$this->data->results = $db_obj->result_array();
+			
+			else:
+			
+				$this->data->mysql_result_error = mysql_error();
+			
+			endif;
+			
+		endif;
+
+		$this->template->append_metadata(js('codemirror/codemirror.js'))->build('admin/query', $this->data);	
 	}
 }
 
 /* End of file admin.php */
-/* Location: ./system/pyrocms/modules/database/controllers/admin.php */
