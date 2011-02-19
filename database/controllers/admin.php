@@ -209,12 +209,12 @@ class Admin extends Admin_Controller
 			$db_obj = $this->db->query( $this->input->post('query_window') );
 				
 			$this->data->query_run = TRUE;
+
+			// Save the query string to display it.
+			$this->data->query_string = $this->input->post('query_window');
 			
 			if( $db_obj ):
-			
-				// Save the query string to display it.
-				$this->data->query_string = $this->input->post('query_window');
-			
+						
 				// Get our results
 				$this->data->results = $db_obj->result_array();
 			
