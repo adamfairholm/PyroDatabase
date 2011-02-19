@@ -16,9 +16,9 @@
 		<tbody>
 			<?php foreach($fields as $field): ?>
 			<tr>
-				<td><?=$field->name;?></td>
-				<td><?=$field->type;?></td>
-				<td><?=$field->max_length;?></td>
+				<td><?php echo $field->name; ?></td>
+				<td><?php echo $field->type; ?></td>
+				<td><?php echo $field->max_length; ?></td>
 				<td><?php if($field->primary_key == "1") { ?>Primary Key<?php } ?></td>
 			</tr>
 			<?php endforeach; ?>

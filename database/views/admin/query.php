@@ -1,6 +1,6 @@
 <?php echo form_open(uri_string()); ?>
 
-	<p><textarea id="html_editor" cols="150" rows="10" name="query_window"><?=$query_string;?></textarea></p>
+	<p><textarea id="html_editor" cols="150" rows="10" name="query_window"><?php echo $query_string;?></textarea></p>
 
 <?php echo form_submit('query', 'Query'); ?>
 
