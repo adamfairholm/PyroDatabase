@@ -171,7 +171,7 @@ class Admin extends Admin_Controller
 	 *
 	 * @access	public
 	 */
-	function processes()
+	public function processes()
 	{
 		$this->load->helper( 'number' );
 	
@@ -210,8 +210,10 @@ class Admin extends Admin_Controller
 			
 			if( $db_obj ):
 			
+				// Save the query string to display it.
 				$this->data->query_string = $this->input->post('query_window');
 			
+				// Get our results
 				$this->data->results = $db_obj->result_array();
 			
 			else:
@@ -222,7 +224,7 @@ class Admin extends Admin_Controller
 			
 		endif;
 
-		$this->template->append_metadata(js('codemirror/codemirror.js'))->build('admin/query', $this->data);	
+		$this->template->build('admin/query', $this->data);	
 	}
 }
 
