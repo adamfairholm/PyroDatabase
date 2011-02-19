@@ -21,7 +21,7 @@
 		<tbody>
 			<td><?php echo $mysql_result_error; ?></td>
 		</tbody>
-		<?php else: ?>
+		<?php elseif( $results ): ?>
 		<thead>
 			<tr>
 			<?php $keys = array(); foreach( $results[0] as $key => $result ): ?>
@@ -38,6 +38,8 @@
 			</tr>			
 			<?php endforeach; ?>
 		</tbody>
+		<?php else: ?>
+		<p>No results for this query.</p>
 		<?php endif; ?>
 	</table>
 	
