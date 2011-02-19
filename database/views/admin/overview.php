@@ -1,25 +1,25 @@
 <section class="box">
 
 	<header>
-		<h3>Database</h3>
+		<h3><?php echo lang('pyrodb.database'); ?></h3>
 	</header>
 		
 	<table class="table-list">
 		<tbody>
 			<tr>
-				<td>MySQL Version</td>
+				<td><?php echo lang('pyrodb.mysql_version'); ?></td>
 				<td><?php echo mysql_get_client_info(); ?></td>
 			</tr>
 			<tr>
-				<td>MySQL Host</td>
+				<td><?php echo lang('pyrodb.mysql_host'); ?></td>
 				<td><?php echo mysql_get_host_info(); ?></td>
 			</tr>
 			<tr>
-				<td>Database Encoding</td>
+				<td><?php echo lang('pyrodb.db_encoding'); ?></td>
 				<td><?php echo mysql_client_encoding(); ?></td>
 			</tr>
 			<tr>
-				<td>MySQL Protocol</td>
+				<td><?php echo lang('pyrodb.mysql_protocol'); ?></td>
 				<td><?php echo mysql_get_proto_info(); ?></td>
 			</tr>
 			<?php foreach( $stats as $stat => $value ): ?>

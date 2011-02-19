@@ -13,7 +13,7 @@
 <section class="box">
 
 	<header>
-		<h3>Query Results</h3>
+		<h3><?php echo lang('pyrodb.query_results'); ?></h3>
 	</header>
 	
 	<table class="table-list">
@@ -39,7 +39,7 @@
 			<?php endforeach; ?>
 		</tbody>
 		<?php else: ?>
-		<p>No results for this query.</p>
+			<p><?php echo lang('pyrodb.no_results'); ?></p>
 		<?php endif; ?>
 	</table>
 	

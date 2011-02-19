@@ -1,7 +1,7 @@
 <section class="box">
 
 	<header>
-		<h3>Database Tables</h3>
+		<h3><?php echo lang('pyrodb.db_tables'); ?></h3>
 	</header>
 	
 	<?php echo form_open('admin/database/tables'); ?>
@@ -10,11 +10,11 @@
 		<thead>
 			<tr>
 				<th width="15"><?php echo form_checkbox('tables_all', '', '', 'class="check-all"');?></th>
-				<th>Table Name</th>
-				<th>Engine</th>
-				<th>Rows</th>
-				<th>Size</th>
-				<th>Comment</th>
+				<th><?php echo lang('pyrodb.table_name'); ?></th>
+				<th><?php echo lang('pyrodb.engine'); ?></th>
+				<th><?php echo lang('pyrodb.rows'); ?></th>
+				<th><?php echo lang('pyrodb.size'); ?></th>
+				<th><?php echo lang('pyrodb.comment'); ?></th>
 			</tr>
 		</thead>
 		<tbody>

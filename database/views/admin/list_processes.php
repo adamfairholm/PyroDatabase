@@ -1,18 +1,18 @@
 <section class="box">
 
 	<header>
-		<h3>Database Processes</h3>
+		<h3><?php echo lang('pyrodb.db_processes'); ?></h3>
 	</header>
 	
 	<table class="table-list">
 		<thead>
 			<tr>
-				<th>User</th>
-				<th>Host</th>
-				<th>Command</th>
-				<th>Time</th>
-				<th>State</th>
-				<th>Info</th>
+				<th><?php echo lang('pyrodb.user');?></th>
+				<th><?php echo lang('pyrodb.host');?></th>
+				<th><?php echo lang('pyrodb.command');?></th>
+				<th><?php echo lang('pyrodb.time');?></th>
+				<th><?php echo lang('pyrodb.state');?></th>
+				<th><?php echo lang('pyrodb.info');?></th>
 			</tr>
 		</thead>
 		<tbody>

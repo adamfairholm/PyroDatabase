@@ -21,6 +21,8 @@ class Admin extends Admin_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		
+		$this->load->language('pyrodatabase');
 
 		$this->template->append_metadata( css('database.css', 'database') )
 				->set_partial('shortcuts', 'admin/partials/shortcuts');
@@ -93,7 +95,7 @@ class Admin extends Admin_Controller
 
 		if( ! $this->input->post('tables') ):
 			
-			$this->session->set_flashdata('notice', 'You must select at least one table to perform this action.');
+			$this->session->set_flashdata('notice', lang('pyrodb.must_select_table'));
 			
 			redirect('admin/database/tables');
 
@@ -149,7 +151,7 @@ class Admin extends Admin_Controller
 		
 		if( !$table_name || !$this->db->table_exists($table_name) ):
 		
-			show_error("Invalid Table Name");
+			show_error( lang('invalid_table_name') );
 	
 		endif;
 	

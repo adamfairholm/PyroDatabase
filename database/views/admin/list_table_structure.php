@@ -7,10 +7,10 @@
 	<table class="table-list">
 		<thead>
 			<tr>
-				<th>Field Name</th>
-				<th>Field Type</th>
-				<th>Contstraint</th>
-				<th>Notes</th>
+				<th><?php echo lang('pyrodb.col_name'); ?></th>
+				<th><?php echo lang('pyrodb.col_type'); ?></th>
+				<th><?php echo lang('pyrodb.constraint'); ?></th>
+				<th><?php echo lang('pyrodb.notes'); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,7 +19,7 @@
 				<td><?php echo $field->name; ?></td>
 				<td><?php echo $field->type; ?></td>
 				<td><?php echo $field->max_length; ?></td>
-				<td><?php if($field->primary_key == "1") { ?>Primary Key<?php } ?></td>
+				<td><?php if($field->primary_key == "1") { echo lang('pyrodb.primary_key'); } ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
