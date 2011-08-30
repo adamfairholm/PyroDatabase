@@ -2,9 +2,13 @@
 
 	<p><textarea id="html_editor" cols="150" rows="10" name="query_window"><?php echo $query_string;?></textarea></p>
 
-<?php echo form_submit('query', 'Query'); ?>
+	<div class="buttons">
+		
+		<button type="submit" name="query" value="Query" class="button" /><span>Run Query</span></button>
+		
+	</div><!--.buttons-->
 
-<?php echo form_close(); ?>
+	</form>
 
 <?php if( $query_run ): ?>
 

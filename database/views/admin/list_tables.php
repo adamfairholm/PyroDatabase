@@ -30,9 +30,14 @@
 			<?php endforeach; ?>
 		</tbody>
 	</table>
-	
-	<?php echo form_submit('repair', 'Repair Tables'); ?> <?php echo form_submit('optimize', 'Optimize Tables'); ?>
-	
-	</form>
-	
+		
 </section><!--box-->
+
+	<div class="buttons float-right">
+		
+		<button type="submit" name="repair" value="Repair Tables" class="button" /><span>Repair Tables</span></button>
+		<button type="submit" name="optimize" value="Optimize Tables" class="button" /><span>Optimize Tables</span></button>
+		
+	</div>
+
+	</form>
