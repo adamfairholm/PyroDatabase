@@ -1,9 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Database
+ * PyroDatabase
  *
- * Controller for the redirects module
+ * Controller for the PyroDatabase module
  * 
  * @author 		Addict Add-ons Dev Team
  * @link		http://addictaddons.com
@@ -24,8 +24,7 @@ class Admin extends Admin_Controller
 		
 		$this->load->language('pyrodatabase');
 
-		$this->template->append_metadata( css('database.css', 'database') )
-				->set_partial('shortcuts', 'admin/partials/shortcuts');
+		$this->template->set_partial('shortcuts', 'admin/partials/shortcuts');
 	}
 
 	// --------------------------------------------------------------------------	
@@ -194,6 +193,8 @@ class Admin extends Admin_Controller
 	 */
 	public function query()
 	{
+		$this->template->append_metadata('<style>#query_window {width: 95%; height: 120px; font-family: "Courier New", Courier, monospace;}</style>');
+
 		$this->data->query_string = '';
 		
 		$this->data->mysql_result_error = '';

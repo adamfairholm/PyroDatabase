@@ -1,8 +1,8 @@
-<section class="box">
+<section class="title">
+	<h4><?php echo lang('pyrodb.db_tables'); ?></h4>
+</section>
 
-	<header>
-		<h3><?php echo lang('pyrodb.db_tables'); ?></h3>
-	</header>
+<section class="item">
 	
 	<?php echo form_open('admin/database/tables'); ?>
 		
@@ -20,7 +20,7 @@
 		<tbody>
 			<?php foreach( $tables as $table ): ?>
 			<tr>
-				<th><?php echo form_checkbox('tables[]', $table->Name);?></th>
+				<td><?php echo form_checkbox('tables[]', $table->Name);?></td>
 				<td><?php echo anchor('admin/database/table/'.$table->Name, $table->Name); ?></td>
 				<td><?php echo $table->Engine; ?></td>
 				<td><?php echo $table->Rows; ?></td>
@@ -31,8 +31,6 @@
 		</tbody>
 	</table>
 		
-</section><!--box-->
-
 	<div class="buttons float-right">
 		
 		<button type="submit" name="repair" value="Repair Tables" class="button" /><span>Repair Tables</span></button>
@@ -41,3 +39,5 @@
 	</div>
 
 	</form>
+
+</section><!--.item-->

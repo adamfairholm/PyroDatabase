@@ -1,3 +1,9 @@
+<section class="title">
+	<h4><?php echo lang('pyrodb.query'); ?></h4>
+</section>
+
+<section class="item">
+
 <?php echo form_open(uri_string()); ?>
 
 	<p><textarea id="html_editor" cols="150" rows="10" name="query_window"><?php echo $query_string;?></textarea></p>
@@ -12,41 +18,43 @@
 
 <?php if( $query_run ): ?>
 
-<br />
+</section>
 
-<section class="box">
+<section class="title">
+	<h4><?php echo lang('pyrodb.query_results'); ?></h4>
+</section>
 
-	<header>
-		<h3><?php echo lang('pyrodb.query_results'); ?></h3>
-	</header>
+<section class="item">
 	
-	<table class="table-list">
-		<?php if( $mysql_result_error ): ?>
-		<tbody>
-			<td><?php echo $mysql_result_error; ?></td>
-		</tbody>
-		<?php elseif( $results ): ?>
-		<thead>
-			<tr>
-			<?php $keys = array(); foreach( $results[0] as $key => $result ): ?>
-				<th><?php echo $keys[] = $key; ?></th>
-			<?php endforeach; ?>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach( $results as $result ): ?>
-			<tr>
-			<?php foreach( $keys  as $key ): ?>
-				<td><?php echo $result[$key]; ?></td>
-			<?php endforeach; ?>
-			</tr>			
-			<?php endforeach; ?>
-		</tbody>
-		<?php else: ?>
-			<p><?php echo lang('pyrodb.no_results'); ?></p>
-		<?php endif; ?>
-	</table>
+<?php if( $mysql_result_error ): ?>	
+
+<p><?php echo $mysql_result_error; ?></p>
 	
-</section><!--box-->
+<?php elseif( $results ): ?>
+	
+<table class="table-list">
+	<thead>
+		<tr>
+		<?php $keys = array(); foreach( $results[0] as $key => $result ): ?>
+			<th><?php echo $keys[] = $key; ?></th>
+		<?php endforeach; ?>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach( $results as $result ): ?>
+		<tr>
+		<?php foreach( $keys  as $key ): ?>
+			<td><?php echo $result[$key]; ?></td>
+		<?php endforeach; ?>
+		</tr>			
+		<?php endforeach; ?>
+	</tbody>
+</table>
+
+<?php else: ?>
+	<p><?php echo lang('pyrodb.no_results'); ?></p>
+<?php endif; ?>
+	
+</section><!--item-->
 
 <?php endif; ?>

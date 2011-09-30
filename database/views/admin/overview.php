@@ -1,8 +1,8 @@
-<section class="box">
+<section class="title">
+	<h4><?php echo lang('pyrodb.database'); ?></h4>
+</section>
 
-	<header>
-		<h3><?php echo lang('pyrodb.database'); ?></h3>
-	</header>
+<section class="item">
 		
 	<table class="table-list">
 		<tbody>
@@ -31,4 +31,4 @@
 		</tbody>
 	</table>
 	
-</div><!--box-->
+</div><!--item-->

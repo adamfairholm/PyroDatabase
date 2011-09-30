@@ -1,9 +1,9 @@
-<section class="box">
-
-	<header>
-		<h3><?php echo lang('pyrodb.db_processes'); ?></h3>
-	</header>
+<section class="title">
+	<h4><?php echo lang('pyrodb.db_processes'); ?></h4>
+</section>
 	
+<section class="item">
+
 	<table class="table-list">
 		<thead>
 			<tr>
@@ -29,5 +29,5 @@
 		</tbody>
 	</table>
 	
-</section><!--box-->
+</section><!--.item-->
 
