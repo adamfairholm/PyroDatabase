@@ -1,5 +1,14 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
+/**
+ * PyroDatabase
+ *
+ * Database Utilities Module for PyroCMS
+ * 
+ * @author 		Parse19
+ * @link		http://parse19.com/pyrodatabase
+ * @package 	PyroDatabase
+ */
 class Module_Database extends Module {
 
 	public $version = '1.1';
@@ -13,25 +22,25 @@ class Module_Database extends Module {
 			'description' => array(
 				'en' => 'Database utilities.'
 			),
-			'frontend' => FALSE,
-			'backend'  => TRUE,
+			'frontend' => false,
+			'backend'  => true,
 			'menu'	  => 'utilities'
 		);
 	}
 
 	public function install()
 	{
-		return TRUE;
+		return true;
 	}
 
 	public function uninstall()
 	{
-		return FALSE;
+		return true;
 	}
 
 	public function upgrade( $upgrade_version )
 	{
-		return TRUE;
+		return true;
 	}
 
 	public function help()

@@ -5,10 +5,9 @@
  *
  * Controller for the PyroDatabase module
  * 
- * @author 		Addict Add-ons Dev Team
- * @link		http://addictaddons.com
+ * @author 		Parse19
+ * @link		http://parse19.com/pyrodatabase
  * @package 	PyroDatabase
- * @category	Modules
  */
 class Admin extends Admin_Controller
 {
