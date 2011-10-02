@@ -1,8 +1,31 @@
-h1. PyroDatabase Utilities Module
+h1. PyroDatabase 1.2
 
-Simple module that allows you to:
+PyroDatabase is a simple MySQL database utilities module for PyroCMS. It allows you to:
 
-*View MySQL status and info
-*View Structure / Repair / Optimize Tables
-*Run Queries
-*See Process List
+* View MySQL status and info
+* View Structure / Repair / Optimize Tables
+* Run Queries
+* See the MySQL Process List
+
+h2. Changelog
+
+_1.2 October 2, 2011_
+
+* Updated for PyroCMS 1.4 interface redesign
+* Added BSD License
+
+_1.1 February 19, 2011_
+
+* Added MySQL error handling for query window
+* Added language support
+* Removed PHP short tags
+
+_1.0 January 15, 2011_
+
+* Basic functionality
+
+h3. Roadmap
+
+The roadmap for PyroDatabase can be found here:
+
+"http://roadma.ps/1rb":http://roadma.ps/1rb
