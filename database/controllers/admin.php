@@ -22,8 +22,6 @@ class Admin extends Admin_Controller
 		parent::__construct();
 		
 		$this->load->language('pyrodatabase');
-
-		$this->template->set_partial('shortcuts', 'admin/partials/shortcuts');
 	}
 
 	// --------------------------------------------------------------------------	

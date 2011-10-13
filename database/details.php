@@ -24,7 +24,25 @@ class Module_Database extends Module {
 			),
 			'frontend' => false,
 			'backend'  => true,
-			'menu'	  => 'utilities'
+			'menu'	  => 'utilities',
+		    'shortcuts' => array(
+				array(
+				    'name' => 'pyrodb.stats',
+				    'uri' => 'admin/database',
+				),
+				array(
+				    'name' => 'pyrodb.tables',
+				    'uri' => 'admin/database/tables',
+				),
+				array(
+				    'name' => 'pyrodb.processes',
+				    'uri' => 'admin/database/processes',
+				),
+				array(
+				    'name' => 'pyrodb.query',
+				    'uri' => 'admin/database/query',
+				),
+		    )
 		);
 	}
 
