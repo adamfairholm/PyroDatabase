@@ -147,7 +147,7 @@ class Admin extends Admin_Controller
 		
 		if( !$table_name || !$this->db->table_exists($table_name) ):
 		
-			show_error( lang('invalid_table_name') );
+			show_error( lang('pyrodb.invalid_table_name') );
 	
 		endif;
 	
