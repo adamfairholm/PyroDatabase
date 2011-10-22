@@ -23,7 +23,7 @@
 				<td><?php echo form_checkbox('tables[]', $table->Name);?></td>
 				<td><?php echo anchor('admin/database/table/'.$table->Name, $table->Name); ?></td>
 				<td><?php echo $table->Engine; ?></td>
-				<td><?php echo $table->Rows; ?></td>
+				<td><?php echo number_format($table->Rows); ?></td>
 				<td><?php echo byte_format($table->Data_length);?></td>
 				<td><?php echo $table->Comment; ?></td>
 			</tr>
