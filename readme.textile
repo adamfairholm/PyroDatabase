@@ -11,7 +11,7 @@ h2. Changelog
 
 _1.2 October 2, 2011_
 
-* Updated for PyroCMS 1.4 interface redesign
+* Updated for PyroCMS 2.0 interface redesign
 * Added BSD License
 
 _1.1 February 19, 2011_
