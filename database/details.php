@@ -11,7 +11,7 @@
  */
 class Module_Database extends Module {
 
-	public $version = '1.1';
+	public $version = '1.2';
 
 	public function info()
 	{
