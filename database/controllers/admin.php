@@ -89,7 +89,7 @@ class Admin extends Admin_Controller
 		// Easy out if there ain't no data
 		// -------------------------------------
 
-		if( ! $this->input->post('tables') ):
+		if( ! $this->input->post('action_to') ):
 			
 			$this->session->set_flashdata('notice', lang('pyrodb.must_select_table'));
 			
@@ -117,7 +117,7 @@ class Admin extends Admin_Controller
 		
 		$outcome = "The following tables were $lang:\n\n";
 	
-		foreach( $this->input->post('tables') as $table ):
+		foreach( $this->input->post('action_to') as $table ):
 		
 			$outcome .= $table.' (';	
 		

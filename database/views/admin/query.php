@@ -10,7 +10,7 @@
 
 	<div class="buttons">
 		
-		<button type="submit" name="query" value="Query" class="button" /><span>Run Query</span></button>
+		<button type="submit" name="query" value="Query" class="btn blue" /><span>Run Query</span></button>
 		
 	</div><!--.buttons-->
 

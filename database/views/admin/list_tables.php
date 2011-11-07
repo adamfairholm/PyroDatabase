@@ -20,7 +20,7 @@
 		<tbody>
 			<?php foreach( $tables as $table ): ?>
 			<tr>
-				<td><?php echo form_checkbox('tables[]', $table->Name);?></td>
+				<td><?php echo form_checkbox('action_to[]', $table->Name);?></td>
 				<td><?php echo anchor('admin/database/table/'.$table->Name, $table->Name); ?></td>
 				<td><?php echo $table->Engine; ?></td>
 				<td><?php echo number_format($table->Rows); ?></td>
@@ -31,12 +31,12 @@
 		</tbody>
 	</table>
 		
-	<div class="buttons float-right">
+	<div class="table_action_buttons">
 		
-		<button type="submit" name="repair" value="Repair Tables" class="button" /><span>Repair Tables</span></button>
-		<button type="submit" name="optimize" value="Optimize Tables" class="button" /><span>Optimize Tables</span></button>
+		<button type="submit" name="repair" value="Repair Tables" class="btn blue" /><span>Repair Tables</span></button>
+		<button type="submit" name="optimize" value="Optimize Tables" class="btn blue" /><span>Optimize Tables</span></button>
 		
-	</div>
+	</div><!--.table_action_buttons-->
 
 	</form>
 
