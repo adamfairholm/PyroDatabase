@@ -9,10 +9,10 @@ PyroDatabase is a simple MySQL database utilities module for PyroCMS. It allows 
 
 h2. Changelog
 
-_1.2 October 2, 2011_
+_1.2.1 November 7, 2011_
 
 * Updated for PyroCMS 2.0 interface redesign
-* Added BSD License
+* Added MIT License
 
 _1.1 February 19, 2011_
 
