@@ -31,4 +31,4 @@
 		</tbody>
 	</table>
 	
-</div><!--item-->
+</section><!--item-->
