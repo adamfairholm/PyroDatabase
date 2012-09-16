@@ -3,11 +3,11 @@
 /**
  * PyroDatabase
  *
- * Controller for the PyroDatabase module
+ * Tables controller - reqair/optimize tables and see
+ * basic table data.
  * 
- * @author 		Parse19
- * @link		http://parse19.com/pyrodatabase
- * @package 	PyroDatabase
+ * @author 		Adam Fairholm
+ * @link		https://github.com/adamfairholm/PyroDatabase
  */
 class Admin_tables extends Admin_Controller
 {

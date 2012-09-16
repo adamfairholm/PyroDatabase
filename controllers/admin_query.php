@@ -3,11 +3,11 @@
 /**
  * PyroDatabase
  *
- * Query Admin controller for the PyroDatabase module
+ * Query Admin controller - enter queries and
+ * see the results.
  * 
- * @author 		Parse19
- * @link		http://parse19.com/pyrodatabase
- * @package 	PyroDatabase
+ * @author 		Adam Fairholm
+ * @link		https://github.com/adamfairholm/PyroDatabase
  */
 class Admin_query extends Admin_Controller
 {

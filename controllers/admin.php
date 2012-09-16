@@ -3,11 +3,10 @@
 /**
  * PyroDatabase
  *
- * Controller for the PyroDatabase module
+ * Index controller - view basic table stats.
  * 
- * @author 		Parse19
- * @link		http://parse19.com/pyrodatabase
- * @package 	PyroDatabase
+ * @author 		Adam Fairholm
+ * @link		https://github.com/adamfairholm/PyroDatabase
  */
 class Admin extends Admin_Controller
 {

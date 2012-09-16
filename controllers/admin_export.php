@@ -6,8 +6,7 @@
  * Export SQL Admin controller for the PyroDatabase module
  * 
  * @author 		Adam Fairholm
- * @link		http://parse19.com/pyrodatabase
- * @package 	PyroDatabase
+ * @link		https://github.com/adamfairholm/PyroDatabase
  */
 class Admin_export extends Admin_Controller
 {
