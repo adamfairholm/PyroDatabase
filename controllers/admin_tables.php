@@ -113,7 +113,7 @@ class Admin_tables extends Admin_Controller
 
 		if ( ! $this->input->post('action_to'))
 		{	
-			$this->session->set_flashdata('notice', lang('pyrodb.must_select_table'));
+			$this->session->set_flashdata('notice', lang('pyrodb:must_select_table'));
 			redirect('admin/database/tables');
 		}
 
