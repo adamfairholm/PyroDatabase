@@ -71,6 +71,12 @@ class Admin_tables extends Admin_Controller
 		$this->load->helper('number');
 
 		$table_name = $this->uri->segment(5);
+
+		// Is this a core table?
+		if ($is_core = substr($table_name, 0, 5) == 'core_')
+		{
+			$this->db->set_dbprefix('core_');
+		}
 		
 		if ( ! $table_name or ! $this->db->table_exists($table_name))
 		{
@@ -85,6 +91,8 @@ class Admin_tables extends Admin_Controller
 
 		$data['fields'] = $this->db->field_data($table_name);
 		$data['table_name'] = $table_name;
+
+		if ($is_core) $this->db->set_dbprefix(SITE_REF.'_');
 
 		$this->template->build('admin/list_table_structure', $data);
 	}
