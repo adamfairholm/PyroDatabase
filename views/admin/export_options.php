@@ -11,33 +11,33 @@
 	<table>
 
 		<tr>
-			<td><strong>File Format</strong></td>
+			<td><strong><?php echo lang('pyrodb:file_format'); ?></strong></td>
 			<td><?php echo form_dropdown('format', $file_formats); ?></td>
 		</tr>
 
 		<tr>
-			<td><strong>Filename</strong><br><small>Only needed if you are exporting to zip.<small></td>
+			<td><strong><?php echo lang('pyrodb:filename'); ?></strong><br><small><?php echo lang('pryodb:filename_instructions'); ?><small></td>
 			<td><input type="text" name="filename" /></td>
 		</tr>
 
 		<tr>
-			<td><strong>Include DROP TABLE statements</strong></td>
+			<td><strong><?php echo lang('pyrodb:include_drop'); ?></strong></td>
 			<td><?php echo form_dropdown('add_drop', $true_false); ?></td>
 		</tr>
 
 		<tr>
-			<td><strong>Include INSERT statements</strong></td>
+			<td><strong><?php echo lang('pyrodb:include_insert'); ?></strong></td>
 			<td><?php echo form_dropdown('add_insert', $true_false); ?></td>
 		</tr>		
 
 		<tr>
-			<td><strong>Newline</strong></td>
+			<td><strong><?php echo lang('pyrodb:newline'); ?></strong></td>
 			<td><?php echo form_dropdown('newline', $newlines); ?></td>
 		</tr>		
 
 	</table>
 
-	<h4>Tables</h4>
+	<h4><?php echo lang('pyrodb:tables'); ?></h4>
 
 	<table class="table-list">
 		<thead>
@@ -60,7 +60,7 @@
 		</tbody>
 	</table>
 
-	<p><input type="submit" class="btn blue" value="Export" /></p>
+	<p><input type="submit" class="btn blue" value="<?php echo lang('pyrodb:export'); ?>" /></p>
 
 	</form>
 

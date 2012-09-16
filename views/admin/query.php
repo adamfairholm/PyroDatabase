@@ -10,7 +10,7 @@
 
 	<div class="buttons">
 		
-		<button type="submit" name="query" value="Query" class="btn blue" /><span>Run Query</span></button>
+		<button type="submit" name="query" value="Query" class="btn blue" /><span><?php echo lang('pyrodb:run_query'); ?></span></button>
 		
 	</div><!--.buttons-->
 
@@ -41,9 +41,9 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach( $results as $result ): ?>
+		<?php foreach ($results as $result): ?>
 		<tr>
-		<?php foreach( $keys  as $key ): ?>
+		<?php foreach ($keys as $key): ?>
 			<td><?php echo $result[$key]; ?></td>
 		<?php endforeach; ?>
 		</tr>			
@@ -52,7 +52,7 @@
 </table>
 
 <?php else: ?>
-	<p><?php echo lang('pyrodb.no_results'); ?></p>
+	<p><?php echo lang('pyrodb:no_results'); ?></p>
 <?php endif; ?>
 	
 </section><!--item-->

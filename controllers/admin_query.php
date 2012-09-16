@@ -46,6 +46,7 @@ class Admin_query extends Admin_Controller
 		$data['mysql_result_error'] = null;
 		$this->db->db_debug 		= false;		
 		$data['query_run']			= false;
+		$data['results'] 			= array();
 	
 		if ($this->input->post('query') and $this->input->post('query') != '')
 		{

@@ -134,13 +134,13 @@ class Admin_tables extends Admin_Controller
 		
 		$this->load->dbutil();
 		
-		$outcome = "The following tables were $lang:\n\n";
+		$outcome = lang('pyrodb:following_tables')." $lang:\n\n";
 	
 		foreach ($this->input->post('action_to') as $table)
 		{
 			$outcome .= $table.' (';	
 		
-			$this->dbutil->repair_table('table_name') ? $outcome .= 'Success' : $outcome .= 'Failure';
+			$this->dbutil->repair_table('table_name') ? $outcome .= lang('success_label') : $outcome .= lang('pyrodb:failure');
 			
 			$outcome .= ")\n";
 		}

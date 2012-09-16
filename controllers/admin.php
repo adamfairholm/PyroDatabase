@@ -59,7 +59,7 @@ class Admin extends Admin_Controller
 	
 		$this->load->helper('number');
 	
-		$data['processes'] = $this->db->query("SHOW PROCESSLIST")->result();
+		$data['processes'] = $this->db->query('SHOW PROCESSLIST')->result();
 				
 		// -------------------------------------
 
