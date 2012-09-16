@@ -15,7 +15,7 @@ class Module_Database extends Module {
 
 	public function info()
 	{
-		return array(
+		$info = array(
 			'name' => array(
 				'en' => 'Database'
 			),
@@ -24,26 +24,31 @@ class Module_Database extends Module {
 			),
 			'frontend' => false,
 			'backend'  => true,
-			'menu'	  => 'utilities',
-		    'shortcuts' => array(
-				array(
-				    'name' => 'pyrodb.stats',
-				    'uri' => 'admin/database',
-				),
-				array(
-				    'name' => 'pyrodb.tables',
-				    'uri' => 'admin/database/tables',
-				),
-				array(
-				    'name' => 'pyrodb.processes',
-				    'uri' => 'admin/database/processes',
-				),
-				array(
-				    'name' => 'pyrodb.query',
-				    'uri' => 'admin/database/query',
-				),
-		    )
+			'menu'	  => 'utilities'
 		);
+
+		// Sections
+		$info['sections']['database'] = array(
+			'name' => 	'pyrodb:database',
+			'uri' => 	'admin/database'
+		);
+
+		$info['sections']['tables'] = array(
+			'name' => 	'pyrodb:optimize_repair',
+			'uri' => 	'admin/database/tables'
+		);
+
+		$info['sections']['query'] = array(
+			'name' => 	'pyrodb:query',
+			'uri' => 	'admin/database/query'
+		);
+
+		$info['sections']['export'] = array(
+			'name' => 	'pyrodb:export',
+			'uri' => 	'admin/database/export'
+		);
+
+		return $info;
 	}
 
 	public function install()

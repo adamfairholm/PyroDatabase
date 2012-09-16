@@ -1,5 +1,5 @@
 <section class="title">
-	<h4><?php echo lang('pyrodb.query'); ?></h4>
+	<h4><?php echo lang('pyrodb:query'); ?></h4>
 </section>
 
 <section class="item">
@@ -21,12 +21,12 @@
 </section>
 
 <section class="title">
-	<h4><?php echo lang('pyrodb.query_results'); ?></h4>
+	<h4><?php echo lang('pyrodb:query_results'); ?></h4>
 </section>
 
 <section class="item">
 	
-<?php if( $mysql_result_error ): ?>	
+<?php if ($mysql_result_error): ?>	
 
 <p><?php echo $mysql_result_error; ?></p>
 	

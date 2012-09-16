@@ -1,5 +1,5 @@
 <section class="title">
-	<h4><?php echo $table_name; ?></h4>
+	<h4><a href="<?php echo site_url('admin/database/tables'); ?>"><?php echo lang('pyrodb:tables'); ?></a> &rarr; <?php echo $table_name; ?></h4>
 </section>
 
 <section class="item">
