@@ -1,13 +1,22 @@
-# PyroDatabase 1.3
+# PyroDatabase 2.0
 
 PyroDatabase is a simple MySQL database utilities module for PyroCMS. It allows you to:
 
 * View MySQL status and info
-* View Structure / Repair / Optimize Tables
+* Export a .SQL backup file for selected tables
+* Repair and Optimize Tables
 * Run Queries
 * See the MySQL Process List
+* View the basic MySQL table structure in your database
 
 ## Changelog
+
+**2.0 September 16, 2012**
+
+* Updating interface and structure for 2.0
+* Adding export option page
+* Combining the MySQL stats and process list pages into one
+* Fixing bug where you could not view the structure of tables prefixed with core_ 
 
 **1.3 November 7, 2011**
 

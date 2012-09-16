@@ -3,15 +3,16 @@
 /**
  * PyroDatabase
  *
- * Database Utilities Module for PyroCMS
+ * Database Utilities Module for PyroCMS. Allows you
+ * to repair/optimize tables, export tables, and run
+ * queries from the PyroCMS admin interface.
  * 
- * @author 		Parse19
- * @link		http://parse19.com/pyrodatabase
- * @package 	PyroDatabase
+ * @author 		Adam Fairholm
+ * @link		https://github.com/adamfairholm/PyroDatabase
  */
 class Module_Database extends Module {
 
-	public $version = '1.3';
+	public $version = '2.0';
 
 	public function info()
 	{
@@ -70,5 +71,5 @@ class Module_Database extends Module {
 	{
 		return "No documentation has been added for this module.";
 	}
+
 }
-/* End of file details.php */
