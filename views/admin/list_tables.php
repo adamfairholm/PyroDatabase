@@ -35,8 +35,8 @@
 
 		<br>
 		
-		<button type="submit" name="repair" value="Repair Tables" class="btn blue" /><span>Repair Tables</span></button>
-		<button type="submit" name="optimize" value="Optimize Tables" class="btn blue" /><span>Optimize Tables</span></button>
+		<button type="submit" name="repair" value="<?php echo lang('pyrodb:button_repair'); ?>" class="btn blue" /><span><?php echo lang('pyrodb:button_repair'); ?></span></button>
+		<button type="submit" name="optimize" value="<?php echo lang('pyrodb:button_optimize'); ?>" class="btn blue" /><span><?php echo lang('pyrodb:button_optimize'); ?></span></button>
 		
 	</div><!--.table_action_buttons-->
 
