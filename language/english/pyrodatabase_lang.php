@@ -4,7 +4,14 @@
 
 $lang['pyrodb:must_select_table'] 						= "You must select at least one table to perform this action.";
 $lang['pyrodb:no_results'] 								= "No results for this query.";
-$lang['pyrodb:following_tables'] 	= "The following tables were";
+$lang['pyrodb:following_tables'] 						= "The following tables were";
+$lang['pyrodb:following_tables_optimized']				= "optimized";
+$lang['pyrodb:following_tables_repaired']				= "repaired";
+
+/* Buttons */
+
+$lang['pyrodb:button_repair']							= "Repair Tables";
+$lang['pyrodb:button_optimize']							= "Optimize Tables";
 
 /* Errors */
 
