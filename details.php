@@ -18,10 +18,12 @@ class Module_Database extends Module {
 	{
 		$info = array(
 			'name' => array(
-				'en' => 'Database'
+				'en' => 'Database', 
+				'fr' => 'Base de données'
 			),
 			'description' => array(
-				'en' => 'Database utilities.'
+				'en' => 'Database utilities.',
+				'fr' => 'Utilitaires pour base de données.'
 			),
 			'frontend' => false,
 			'backend'  => true,

@@ -124,12 +124,12 @@ class Admin_tables extends Admin_Controller
 		if ($type == 'repair')
 		{
 			$action = 'repair_table';
-			$lang 	= 'repaired';
+			$lang 	= lang('pyrodb:following_tables_repaired');
 		}
 		else
 		{
 			$action = 'optimize_table';
-			$lang	= 'optimized';
+			$lang	= lang('pyrodb:following_tables_optimized');
 		}
 		
 		$this->load->dbutil();
