@@ -33,7 +33,12 @@
 		<tr>
 			<td><strong><?php echo lang('pyrodb:newline'); ?></strong></td>
 			<td><?php echo form_dropdown('newline', $newlines); ?></td>
-		</tr>		
+		</tr>
+		
+		<tr>
+			<td><strong><?php echo lang('pyrodb:full_export'); ?></strong></td>
+			<td><input type="submit" name="full_export" value="<?php echo lang('pyrodb:full_export'); ?>"></td>
+		</tr>	
 
 	</table>
 

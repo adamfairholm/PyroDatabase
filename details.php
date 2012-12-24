@@ -19,11 +19,13 @@ class Module_Database extends Module {
 		$info = array(
 			'name' => array(
 				'en' => 'Database', 
-				'fr' => 'Base de données'
+				'fr' => 'Base de données',
+				'it' => 'Database',
 			),
 			'description' => array(
 				'en' => 'Database utilities.',
-				'fr' => 'Utilitaires pour base de données.'
+				'fr' => 'Utilitaires pour base de données.',
+				'it' =>'Gestisci il tuo database',
 			),
 			'frontend' => false,
 			'backend'  => true,

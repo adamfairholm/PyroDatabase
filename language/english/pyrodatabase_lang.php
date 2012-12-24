@@ -56,6 +56,7 @@ $lang['pyrodb:file_format']								= "File Format";
 $lang['pyrodb:filename']								= "Filename";
 $lang['pyrodb:newline']									= "Newline";
 $lang['pyrodb:run_query']								= "Run Query";
+$lang['pyrodb:full_export']								= 'Full Export';
 
 $lang['pyrodb:include_drop']	= "Include DROP TABLE statements";
 $lang['pyrodb:include_insert']	= "Include INSERT statements";
