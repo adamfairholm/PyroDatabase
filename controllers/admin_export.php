@@ -4,7 +4,7 @@
  * PyroDatabase
  *
  * Export SQL Admin controller for the PyroDatabase module
- * 
+ *
  * @author 		Adam Fairholm
  * @link		https://github.com/adamfairholm/PyroDatabase
  */
@@ -12,7 +12,7 @@ class Admin_export extends Admin_Controller
 {
 	protected $section = 'export';
 
-	// --------------------------------------------------------------------------	
+	// --------------------------------------------------------------------------
 
 	/**
 	 * Constructor method
@@ -23,11 +23,11 @@ class Admin_export extends Admin_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->load->language('pyrodatabase');
 	}
 
-	// --------------------------------------------------------------------------	
+	// --------------------------------------------------------------------------
 
 	/**
 	 * Run a Query and display the results
@@ -39,7 +39,7 @@ class Admin_export extends Admin_Controller
 	{
 		if($this->input->post('full_export'))
 			$this->full();
-			
+
 		// Do SQL export
 		if ($this->input->post())
 		{
@@ -76,6 +76,10 @@ class Admin_export extends Admin_Controller
 				'newline'     => $newline
 			);
 
+			if($backup_prefs['add_drop'])
+				$backup_prefs['add_drop'] = TRUE;
+			if($backup_prefs['add_insert'])
+				$backup_prefs['add_insert'] = TRUE;
 
 			$this->load->helper('download');
 			force_download($filename.'.'.$this->input->post('format'), $this->dbutil->backup($backup_prefs));
@@ -91,15 +95,15 @@ class Admin_export extends Admin_Controller
 		$data['newlines'] = array('n' => '\n', 'r' => '\r', 'r_n' => '\r\n');
 
 		// Get the tables
-		$data['tables'] = $this->db->query('SHOW TABLE STATUS')->result();			
+		$data['tables'] = $this->db->query('SHOW TABLE STATUS')->result();
 
-		$this->template->build('admin/export_options', $data);	
+		$this->template->build('admin/export_options', $data);
 	}
-	
+
 	function full()
-	{		
+	{
 		$this->load->dbutil();
-		
+
 		// Filename
 			if ( ! $filename = $this->input->post('filename'))
 			{
@@ -129,7 +133,7 @@ class Admin_export extends Admin_Controller
 				'add_insert'  => $this->input->post('add_insert'),
 				'newline'     => $newline
 			);
-			
+
 		$this->load->helper('download');
 		force_download($filename.'.'.$this->input->post('format'), $this->dbutil->backup($backup_prefs));
 	}
