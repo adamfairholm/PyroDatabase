@@ -4,7 +4,7 @@
  * PyroDatabase
  *
  * Export SQL Admin controller for the PyroDatabase module
- * 
+ *
  * @author 		Adam Fairholm
  * @link		https://github.com/adamfairholm/PyroDatabase
  */
@@ -12,7 +12,7 @@ class Admin_export extends Admin_Controller
 {
 	protected $section = 'export';
 
-	// --------------------------------------------------------------------------	
+	// --------------------------------------------------------------------------
 
 	/**
 	 * Constructor method
@@ -23,11 +23,11 @@ class Admin_export extends Admin_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->load->language('pyrodatabase');
 	}
 
-	// --------------------------------------------------------------------------	
+	// --------------------------------------------------------------------------
 
 	/**
 	 * Run a Query and display the results
@@ -39,47 +39,10 @@ class Admin_export extends Admin_Controller
 	{
 		if($this->input->post('full_export'))
 			$this->full();
-			
-		// Do SQL export
+		if($this->input->post('current_site_export'))
+			$this->current_site();
 		if ($this->input->post())
-		{
-			$this->load->dbutil();
-
-			// Filename
-			if ( ! $filename = $this->input->post('filename'))
-			{
-				$filename = 'dbbackup_'.date('Ymd').'.sql';
-			}
-
-			// Can't find a way around this.
-			switch($this->input->post('newline'))
-			{
-				case 'n':
-					$newline = "\n";
-					break;
-				case 'r':
-					$newline = "\r";
-					break;
-				case 'r_n':
-					$newline = "\r\n";
-					break;
-				default:
-					$newline = "\n";
-			}
-
-			$backup_prefs = array(
-				'tables'      => $this->input->post('action_to'),
-				'format'      => $this->input->post('format'),
-				'filename'	  => $filename,
-				'add_drop'    => $this->input->post('add_drop'),
-				'add_insert'  => $this->input->post('add_insert'),
-				'newline'     => $newline
-			);
-
-
-			$this->load->helper('download');
-			force_download($filename.'.'.$this->input->post('format'), $this->dbutil->backup($backup_prefs));
-		}
+			$this->export();
 
 		$data = array();
 
@@ -91,45 +54,70 @@ class Admin_export extends Admin_Controller
 		$data['newlines'] = array('n' => '\n', 'r' => '\r', 'r_n' => '\r\n');
 
 		// Get the tables
-		$data['tables'] = $this->db->query('SHOW TABLE STATUS')->result();			
+		$data['tables'] = $this->db->query('SHOW TABLE STATUS')->result();
 
-		$this->template->build('admin/export_options', $data);	
+		$this->template->build('admin/export_options', $data);
 	}
-	
+
 	function full()
-	{		
-		$this->load->dbutil();
-		
-		// Filename
-			if ( ! $filename = $this->input->post('filename'))
+	{
+		$this->export();
+	}
+
+	function current_site()
+	{
+		$tables = $this->db->query('SHOW TABLES LIKE \''.SITE_REF.'_%\'')->result_array();
+		foreach ($tables as $row)
+		{
+			foreach ($row as $table)
 			{
-				$filename = 'dbbackup_'.date('Ymd').'.sql';
+				$tables_array[] = $table;
 			}
+		}
+
+		$this->export($tables_array);
+	}
+
+	public function export($tables = array())
+	{
+		$this->load->dbutil();
+
+			// Filename
+		if ( ! $filename = $this->input->post('filename'))
+		{
+			$filename = 'dbbackup_'.date('Ymd').'.sql';
+		}
 
 			// Can't find a way around this.
-			switch($this->input->post('newline'))
-			{
-				case 'n':
-					$newline = "\n";
-					break;
-				case 'r':
-					$newline = "\r";
-					break;
-				case 'r_n':
-					$newline = "\r\n";
-					break;
-				default:
-					$newline = "\n";
-			}
+		switch($this->input->post('newline'))
+		{
+			case 'n':
+			$newline = "\n";
+			break;
+			case 'r':
+			$newline = "\r";
+			break;
+			case 'r_n':
+			$newline = "\r\n";
+			break;
+			default:
+			$newline = "\n";
+		}
 
-			$backup_prefs = array(
-				'format'      => $this->input->post('format'),
-				'filename'	  => $filename,
-				'add_drop'    => $this->input->post('add_drop'),
-				'add_insert'  => $this->input->post('add_insert'),
-				'newline'     => $newline
+		$backup_prefs = array(
+			'tables'      => $tables,
+			'format'      => $this->input->post('format'),
+			'filename'	  => $filename,
+			'add_drop'    => $this->input->post('add_drop'),
+			'add_insert'  => $this->input->post('add_insert'),
+			'newline'     => $newline
 			);
-			
+
+		if($backup_prefs['add_drop'])
+			$backup_prefs['add_drop'] = TRUE;
+		if($backup_prefs['add_insert'])
+			$backup_prefs['add_insert'] = TRUE;
+
 		$this->load->helper('download');
 		force_download($filename.'.'.$this->input->post('format'), $this->dbutil->backup($backup_prefs));
 	}
