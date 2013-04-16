@@ -39,51 +39,10 @@ class Admin_export extends Admin_Controller
 	{
 		if($this->input->post('full_export'))
 			$this->full();
-
-		// Do SQL export
+		if($this->input->post('current_site_export'))
+			$this->current_site();
 		if ($this->input->post())
-		{
-			$this->load->dbutil();
-
-			// Filename
-			if ( ! $filename = $this->input->post('filename'))
-			{
-				$filename = 'dbbackup_'.date('Ymd').'.sql';
-			}
-
-			// Can't find a way around this.
-			switch($this->input->post('newline'))
-			{
-				case 'n':
-					$newline = "\n";
-					break;
-				case 'r':
-					$newline = "\r";
-					break;
-				case 'r_n':
-					$newline = "\r\n";
-					break;
-				default:
-					$newline = "\n";
-			}
-
-			$backup_prefs = array(
-				'tables'      => $this->input->post('action_to'),
-				'format'      => $this->input->post('format'),
-				'filename'	  => $filename,
-				'add_drop'    => $this->input->post('add_drop'),
-				'add_insert'  => $this->input->post('add_insert'),
-				'newline'     => $newline
-			);
-
-			if($backup_prefs['add_drop'])
-				$backup_prefs['add_drop'] = TRUE;
-			if($backup_prefs['add_insert'])
-				$backup_prefs['add_insert'] = TRUE;
-
-			$this->load->helper('download');
-			force_download($filename.'.'.$this->input->post('format'), $this->dbutil->backup($backup_prefs));
-		}
+			$this->export();
 
 		$data = array();
 
@@ -102,37 +61,62 @@ class Admin_export extends Admin_Controller
 
 	function full()
 	{
+		$this->export();
+	}
+
+	function current_site()
+	{
+		$tables = $this->db->query('SHOW TABLES LIKE \''.SITE_REF.'_%\'')->result_array();
+		foreach ($tables as $row)
+		{
+			foreach ($row as $table)
+			{
+				$tables_array[] = $table;
+			}
+		}
+
+		$this->export($tables_array);
+	}
+
+	public function export($tables = array())
+	{
 		$this->load->dbutil();
 
-		// Filename
-			if ( ! $filename = $this->input->post('filename'))
-			{
-				$filename = 'dbbackup_'.date('Ymd').'.sql';
-			}
+			// Filename
+		if ( ! $filename = $this->input->post('filename'))
+		{
+			$filename = 'dbbackup_'.date('Ymd').'.sql';
+		}
 
 			// Can't find a way around this.
-			switch($this->input->post('newline'))
-			{
-				case 'n':
-					$newline = "\n";
-					break;
-				case 'r':
-					$newline = "\r";
-					break;
-				case 'r_n':
-					$newline = "\r\n";
-					break;
-				default:
-					$newline = "\n";
-			}
+		switch($this->input->post('newline'))
+		{
+			case 'n':
+			$newline = "\n";
+			break;
+			case 'r':
+			$newline = "\r";
+			break;
+			case 'r_n':
+			$newline = "\r\n";
+			break;
+			default:
+			$newline = "\n";
+		}
 
-			$backup_prefs = array(
-				'format'      => $this->input->post('format'),
-				'filename'	  => $filename,
-				'add_drop'    => $this->input->post('add_drop'),
-				'add_insert'  => $this->input->post('add_insert'),
-				'newline'     => $newline
+		$backup_prefs = array(
+			'tables'      => $tables,
+			'format'      => $this->input->post('format'),
+			'filename'	  => $filename,
+			'add_drop'    => $this->input->post('add_drop'),
+			'add_insert'  => $this->input->post('add_insert'),
+			'newline'     => $newline
 			);
+
+		if($backup_prefs['add_drop'])
+			$backup_prefs['add_drop'] = TRUE;
+		if($backup_prefs['add_insert'])
+			$backup_prefs['add_insert'] = TRUE;
 
 		$this->load->helper('download');
 		force_download($filename.'.'.$this->input->post('format'), $this->dbutil->backup($backup_prefs));
