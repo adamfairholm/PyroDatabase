@@ -3,12 +3,13 @@
 </section>
 
 <section class="item">
+	<div class="content">
 
 	<?php echo form_open('admin/database/export'); ?>
 
 	<form action="<?php echo site_url('admin/database/export'); ?>" method="post">
 
-	<table>
+	<table class="table-list" cellpadding="0" cellspacing="0">
 
 		<tr>
 			<td><strong><?php echo lang('pyrodb:file_format'); ?></strong></td>
@@ -49,7 +50,7 @@
 
 	<h4><?php echo lang('pyrodb:tables'); ?></h4>
 
-	<table class="table-list">
+	<table class="table-list" cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>
 				<th><?php echo form_checkbox('tables_all', '', '', 'class="check-all"');?>&nbsp;&nbsp;<?php echo lang('pyrodb:table_name'); ?></th>
@@ -74,4 +75,5 @@
 
 	</form>
 
+	</div>
 </section>

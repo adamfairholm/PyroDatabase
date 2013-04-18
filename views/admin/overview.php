@@ -3,8 +3,10 @@
 </section>
 
 <section class="item">
+
+<div class="content">
 		
-	<table class="table-list">
+	<table class="table-list" cellpadding="0" cellspacing="0">
 		<tbody>
 			<tr>
 				<td><?php echo lang('pyrodb:mysql_version'); ?></td>
@@ -30,16 +32,10 @@
 			<?php endforeach; ?>
 		</tbody>
 	</table>
-	
-</section><!--item-->
 
-<section class="title">
 	<h4><?php echo lang('pyrodb:db_processes'); ?></h4>
-</section>
-	
-<section class="item">
 
-	<table class="table-list">
+	<table class="table-list" cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>
 				<th><?php echo lang('pyrodb:user');?></th>
@@ -63,6 +59,7 @@
 			<?php endforeach; ?>
 		</tbody>
 	</table>
-	
-</section><!--.item-->
 
+</div>
+	
+</section><!--item-->

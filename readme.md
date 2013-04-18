@@ -1,4 +1,4 @@
-# PyroDatabase 2.0
+# PyroDatabase 2.1
 
 PyroDatabase is a simple MySQL database utilities module for PyroCMS. It allows you to:
 
@@ -10,6 +10,10 @@ PyroDatabase is a simple MySQL database utilities module for PyroCMS. It allows 
 * View the basic MySQL table structure in your database
 
 ## Changelog
+
+**2.1 April 18, 2013**
+
+* Updating interface for 2.2
 
 **2.0 September 16, 2012**
 

@@ -3,14 +3,15 @@
 </section>
 
 <section class="item">
+	<div class="content">
 
-<table class="table-list">
+	<table class="table-list" cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>
-			<th><?php echo lang('pyrodb.col_name'); ?></th>
-			<th><?php echo lang('pyrodb.col_type'); ?></th>
-			<th><?php echo lang('pyrodb.constraint'); ?></th>
-			<th><?php echo lang('pyrodb.notes'); ?></th>
+			<th><?php echo lang('pyrodb:col_name'); ?></th>
+			<th><?php echo lang('pyrodb:col_type'); ?></th>
+			<th><?php echo lang('pyrodb:constraint'); ?></th>
+			<th><?php echo lang('pyrodb:notes'); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,4 +26,5 @@
 	</tbody>
 </table>
 	
+</div>
 </section><!--.item-->

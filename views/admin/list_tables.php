@@ -3,10 +3,11 @@
 </section>
 
 <section class="item">
+	<div class="content">
 	
 	<?php echo form_open('admin/database/tables'); ?>
 		
-	<table class="table-list">
+	<table class="table-list" cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>
 				<th width="15"><?php echo form_checkbox('tables_all', '', '', 'class="check-all"');?></th>
@@ -42,4 +43,5 @@
 
 	</form>
 
+	</div>
 </section><!--.item-->
